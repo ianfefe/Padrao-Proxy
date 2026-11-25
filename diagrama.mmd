@@ -1,0 +1,19 @@
+%%{init: {"flowchart": {"curve": "linear"}, "class": {"curve": "linear"}}}%%
+classDiagram
+    direction TD
+
+    class BD {}
+    class Profissional {}
+    class Paciente {}
+    class PacienteProxy {}
+    class IPaciente {
+        <<interface>>
+    }
+
+    BD --> "0..*" Paciente
+    Paciente ..> BD
+    Paciente ..> Profissional
+    PacienteProxy ..> Profissional
+    PacienteProxy --> "1" Paciente
+    IPaciente <|-- Paciente
+    IPaciente <|-- PacienteProxy
